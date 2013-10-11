@@ -44,6 +44,10 @@ $('.screen-terminal pre').terminal(
                 this.exec('move right '+amount);
             },
         move: function(move, amount) {
+            if(typeof(amount)!=='number'){
+                this.echo('Invalid value for [[;#000;#0f0]'+move+']: [[;#000;#0f0]'+amount+']');
+                return false;
+            }
             this.echo('Moving missile launcher [[;#000;#0f0]'+move+'] by [[;#000;#00ee11]'+amount+']');
         },
         matrix: function(color) {
