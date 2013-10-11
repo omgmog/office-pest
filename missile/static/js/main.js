@@ -49,7 +49,7 @@ $('.screen-terminal pre').terminal(
         matrix: function(color) {
             if(color==="red"){
                 $('html').addClass('matrix');
-                this.echo('Wake up, Neo...')
+                this.echo('Wake up, Neo...');
             }else{
                 $('html').removeClass('matrix');
             }
