@@ -1,0 +1,111 @@
+html {
+    background-color: #2a2a2a;
+    height: 100%;
+}
+html.matrix {
+    background-image: url(http://f.cl.ly/items/0o0S2t1j413n391S2l1Y/animated%20matrix%20wallpaper%20gif.gif);
+}
+.computer {
+    width: 1000px;
+    height: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    padding-top: 50px;
+}
+.screen-outer {
+    width: 950px;
+    margin: 0 auto;
+    height: 750px;
+    padding: 50px 75px;
+    background-color: #60655b;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    -moz-box-shadow: 0 0 20px rgba(0,0,0,.4), inset 0 -10px 20px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.4), inset 0 -10px 20px rgba(0,0,0,.4);
+    box-shadow: 0 0 20px rgba(0,0,0,.4), inset 0 -10px 20px rgba(0,0,0,.4);
+}
+.matrix .screen-outer {
+
+    -moz-box-shadow: 0 0 50px rgba(0,0,0,.8), inset 0 -10px 20px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 50px rgba(0,0,0,.8), inset 0 -10px 20px rgba(0,0,0,.4);
+    box-shadow: 0 0 50px rgba(0,0,0,.8), inset 0 -10px 20px rgba(0,0,0,.4);
+}
+.screen-inner {
+    width: 800px;
+    height: 599px;
+    position: relative;
+
+    background-color: #000;
+    background-image: url(../img/screen-background.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    -moz-box-shadow: 0 0 30px rgba(0,0,0,.6);
+    -webkit-box-shadow: 0 0 30px rgba(0,0,0,.6);
+    box-shadow: 0 0 30px rgba(0,0,0,.6);
+}
+.screen-terminal {
+    color: green;
+}
+.screen-terminal .terminal-output {
+    position: absolute;
+    z-index: 10;
+    bottom: 30px;
+    max-height: 100%;
+    margin: 60px 80px;
+    display: block;
+    width: 640px;
+}
+.cmd {
+    position: absolute;
+    bottom: 10px;
+    margin: 0 80px 60px;
+    width: 640px!important;
+    padding: 0;
+}
+.cursor {
+    background-color: green;
+}
+.cursor.inverted {
+    background-color: transparent;
+}
+.clipboard {
+    border: 0;
+    height: 1em;
+    width: 1em;
+    background: transparent;
+    resize: none;
+}
+.screen-overlay {
+    width: 800px;
+    height: 600px;
+    background-image: url(../img/screen-overlay.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+#matrix {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
