@@ -1,6 +1,6 @@
 html {
     background-color: #2a2a2a;
-    height: 100%;
+    min-height: 100%;
 }
 html.matrix {
     background-image: url(http://f.cl.ly/items/0o0S2t1j413n391S2l1Y/animated%20matrix%20wallpaper%20gif.gif);
@@ -11,13 +11,14 @@ html.matrix {
     margin: 0 auto;
     position: relative;
     z-index: 10;
-    padding-top: 20px;
+    padding: 50px 0 0;
 }
-.screen-outer {
-    width: 950px;
+.screen {
+    width: 800px;
     margin: 0 auto;
-    height: 750px;
-    padding: 50px 75px;
+    height: 650px;
+    padding: 0;
+    overflow: hidden;
     background-color: #909285;
 
     -moz-box-sizing: border-box;
@@ -28,27 +29,33 @@ html.matrix {
     -webkit-border-radius: 10px;
     border-radius: 10px;
 
-    -moz-box-shadow: 0 0 20px rgba(0,0,0,.4), inset 0 -10px 20px rgba(0,0,0,.4);
-    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.4), inset 0 -10px 20px rgba(0,0,0,.4);
-    box-shadow: 0 0 20px rgba(0,0,0,.4), inset 0 -10px 20px rgba(0,0,0,.4);
-
-    -webkit-transform: scale(0.8);
+    -moz-box-shadow: 0 0 20px rgba(0,0,0,.4),
+        inset 0 -10px 20px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.4),
+        inset 0 -10px 20px rgba(0,0,0,.4);
+    box-shadow: 0 0 20px rgba(0,0,0,.4),
+        inset 0 -10px 20px rgba(0,0,0,.4);
 }
-.matrix .screen-outer {
-
-    -moz-box-shadow: 0 0 50px rgba(0,0,0,.8), inset 0 -10px 20px rgba(0,0,0,.4);
-    -webkit-box-shadow: 0 0 50px rgba(0,0,0,.8), inset 0 -10px 20px rgba(0,0,0,.4);
-    box-shadow: 0 0 50px rgba(0,0,0,.8), inset 0 -10px 20px rgba(0,0,0,.4);
+.matrix .screen {
+    -moz-box-shadow: 0 0 50px rgba(0,0,0,.8),
+        inset 0 -10px 20px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 50px rgba(0,0,0,.8),
+        inset 0 -10px 20px rgba(0,0,0,.4);
+    box-shadow: 0 0 50px rgba(0,0,0,.8),
+        inset 0 -10px 20px rgba(0,0,0,.4);
 }
 .screen-inner {
-    width: 800px;
-    height: 599px;
+    width: 700px;
+    height: 499px;
     position: relative;
+    margin: 40px 50px;
 
     background-color: #000;
     background-image: url(../img/screen-background.png);
     background-position: 0 0;
     background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
 
     overflow: hidden;
 
@@ -61,8 +68,7 @@ html.matrix {
     box-shadow: 0 0 30px rgba(0,0,0,.6);
 }
 .screen-terminal {
-    color: green;
-}
+    color: #0d0;}
 .screen-terminal .terminal-output {
     position: absolute;
     z-index: 10;
@@ -70,7 +76,14 @@ html.matrix {
     max-height: 100%;
     margin: 60px 80px;
     display: block;
-    width: 640px;
+    width: 540px;
+    height: 350px;
+    overflow: hidden;
+    overflow-y: scroll;
+    text-shadow: 0 0 4px rgba(0,255,0,.4);
+}
+.terminal-output span {
+    color: #0d0!important;
 }
 .cmd {
     position: absolute;
@@ -93,16 +106,26 @@ html.matrix {
     resize: none;
 }
 .screen-overlay {
-    width: 800px;
-    height: 600px;
+    width: 700px;
+    height: 499px;
     background-image: url(../img/screen-overlay.png);
-    background-position: 0 0;
+    background-position: 0 50px;
     background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
 
     position: absolute;
     left: 0;
     top: 0;
     z-index: 9;
+}
+.grill {
+    background-image: url(../img/fan-grill.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 100px;
+    margin-left: 50px;
 }
 
 #matrix {
@@ -115,8 +138,45 @@ html.matrix {
 .keyboard {
     width: 1000px;
     height: 400px;
-    margin-top: -80px;
     background-image: url(../img/keyboard.png);
     background-position: 50% 0;
     background-repeat: no-repeat;
+    position: relative;
+}
+.key {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.up {
+    left: 695px;
+    top: 220px;
+}
+.down {
+    left: 700px;
+    top: 252px;
+}
+.left {
+    left: 666px;
+    top: 252px;
+}
+.right {
+    left: 740px;
+    top: 252px;
+}
+.space {
+    width: 260px;
+    top: 252px;
+    left: 240px;
+}
+.enter {
+    width: 75px;
+    left: 560px;
+    top: 195px;
+}
+.esc {
+    left: 120px;
+    top: 70px;
 }
