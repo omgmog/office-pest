@@ -1,66 +1,56 @@
-$('.screen-terminal pre').terminal(
-    {
-        echo: function(arg1) {
-            this.echo(arg1);
-        },
-        help: function() {
-            this.echo('Commands:');
-            this.echo('- echo \'text to echo\'');
-        },
-        up: function(amount) {
-            this.exec('move up '+amount);
-        },
-            u: function(amount) {
-                this.exec('move up '+amount);
-            },
-            higher: function(amount) {
-                this.exec('move up '+amount);
-            },
-        down: function(amount) {
-            this.exec('move down '+amount);
-        },
-            d: function(amount) {
-                this.exec('move down '+amount);
-            },
-            lower: function(amount) {
-                this.exec('move down '+amount);
-            },
-        left: function(amount) {
-            this.exec('move left '+amount);
-        },
-            l: function(amount) {
-                this.exec('move left '+amount);
-            },
-            west: function(amount) {
-                this.exec('move left '+amount);
-            },
-        right: function(amount) {
-            this.exec('move right '+amount);
-        },
-            r: function(amount) {
-                this.exec('move right '+amount);
-            },
-            east: function(amount) {
-                this.exec('move right '+amount);
-            },
-        move: function(move, amount) {
-            if(typeof(amount)!=='number'){
-                this.echo('Invalid value for [[;#000;#0f0]'+move+']: [[;#000;#0f0]'+amount+']');
-                return false;
-            }
-            this.echo('Moving missile launcher [[;#000;#0f0]'+move+'] by [[;#000;#00ee11]'+amount+']');
-        },
-        matrix: function(color) {
-            if(color==="red"){
-                $('html').addClass('matrix');
-                this.echo('Wake up, Neo...');
-            }else{
-                $('html').removeClass('matrix');
-            }
-        }
-    },
-    {
-        greetings: '',
-        prompt: '$ '
+$('.screen-terminal pre').terminal(function(cmd, term) {
+    if (cmd.match(/help/)) {
+        term.echo('There is no helping you.');
     }
-);
+    if(cmd.match(/^up\s/)) {
+        term.echo('Pushed up');
+    }
+
+    if(cmd.match(/^matrix(\s\w)+/)) {
+        var args = cmd.split(' ');
+            args.shift();
+        console.log(args);
+        if(args[0] === 'red'){
+            $('html').addClass('matrix');
+        }else{
+            $('html').removeClass('matrix');
+        }
+
+    }
+},
+{
+    prompt: '→ ',
+    name: 'pest',
+    greetings:  false,
+    onInit: function (term){
+        $('.key').on('click', function() {
+            switch(($(this).attr('class').split(' ')[1])) {
+                case 'up':
+                    term.exec('up 100');
+                break;
+                case 'down':
+                    term.exec('down 100');
+                break;
+                case 'left':
+                    term.exec('left 100');
+                break;
+                case 'right':
+                    term.exec('right 100');
+                break;
+                case 'space':
+                    term.exec('shoot 1');
+                break;
+                case 'enter':
+                    term.exec('led 1');
+                break;
+                case 'esc':
+                    term.exec('led 0');
+                break;
+                default:
+                    term.echo('That\'s not a key I\'m familiar with!');
+                break;
+            }
+            term.focus(true);
+        });
+    }
+});
